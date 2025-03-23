@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Farm2Fabric</string>
+    <string-array name="role_options">
+        <item>Admin</item>
+        <item>User</item>
+        <item>Guest</item>
+    </string-array>
+</resources>

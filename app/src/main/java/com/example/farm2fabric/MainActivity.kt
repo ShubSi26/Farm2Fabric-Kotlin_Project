@@ -24,14 +24,41 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val motionview = findViewById<MotionLayout>(R.id.main)
-        Handler(Looper.getMainLooper()).postDelayed({
-            motionview.transitionToEnd()
-        }, 3000)
 
         val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
-        val authToken = sharedPreferences.getString("auth_token", "Sfsdf")
+        val authToken = sharedPreferences.getString("auth_token", "") ?: ""
 
-        Toast.makeText(this, "Token: $authToken", Toast.LENGTH_SHORT).show()
+        val apiUrl = BuildConfig.API_LINK + "/tokenverify" // Read from gradle.properties
+
+        Toast.makeText(this, apiUrl, Toast.LENGTH_LONG).show()
+        val request = Request.Builder()
+            .url(apiUrl)
+            .get()
+            .header("authorization",authToken)
+            .build()
+
+        val client = OkHttpClient()
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                runOnUiThread {
+                    motionview.transitionToEnd()
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                runOnUiThread {
+                    if (response.isSuccessful) {
+                        val intent = Intent(this@MainActivity, Dashboard::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        motionview.transitionToEnd()
+                    }
+                }
+            }
+
+        })
+
     }
 
     fun submit(view: View) {
@@ -88,6 +115,9 @@ class MainActivity : AppCompatActivity() {
                             }
 
                             Toast.makeText(this@MainActivity, "Token Saved!", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this@MainActivity, Dashboard::class.java)
+                            startActivity(intent)
+                            finish()
                         } catch (e: Exception) {
                             Toast.makeText(this@MainActivity, "Error parsing response", Toast.LENGTH_SHORT).show()
                         }

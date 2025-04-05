@@ -2,32 +2,33 @@
 <MotionScene
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     >
 
     <Transition
         motion:constraintSetStart="@id/start2"
         motion:constraintSetEnd="@id/end2"
         motion:duration="800" >
-
     </Transition>
 
-    <!-- Start State: LinearLayout is off-screen (top is below parent's bottom) -->
+    <!-- Start State: LinearLayout is off-screen (small height) but anchored at bottom -->
     <ConstraintSet android:id="@+id/start2">
         <Constraint
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            app:layout_constraintBottom_toTopOf="@id/bottom_navigation" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
     </ConstraintSet>
 
-    <!-- End State: LinearLayout expands to 600dp and is fully visible -->
+    <!-- End State: LinearLayout expands to 530dp and remains anchored at bottom -->
     <ConstraintSet android:id="@+id/end2">
         <Constraint
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="530dp"
-            app:layout_constraintBottom_toTopOf="@id/bottom_navigation" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
     </ConstraintSet>
 
 </MotionScene>

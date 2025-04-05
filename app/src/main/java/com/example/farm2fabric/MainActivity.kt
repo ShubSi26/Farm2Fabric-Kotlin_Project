@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         val apiUrl = BuildConfig.API_LINK + "/tokenverify" // Read from gradle.properties
 
-        Toast.makeText(this, apiUrl, Toast.LENGTH_LONG).show()
         val request = Request.Builder()
             .url(apiUrl)
             .get()
@@ -122,7 +121,7 @@ class MainActivity : AppCompatActivity() {
                             Toast.makeText(this@MainActivity, "Error parsing response", Toast.LENGTH_SHORT).show()
                         }
                     } else {
-                        Toast.makeText(this@MainActivity, "Error: $responseBody", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@MainActivity, "Server Error", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

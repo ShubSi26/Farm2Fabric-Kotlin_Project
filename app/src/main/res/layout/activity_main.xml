@@ -36,7 +36,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Form (Initially Invisible) -->
     <LinearLayout
         android:id="@+id/form"
         android:layout_width="match_parent"
@@ -44,20 +43,13 @@
         android:orientation="vertical"
         android:padding="16dp"
         android:visibility="invisible"
-
         >
         <EditText
-            android:id="@+id/input_name"
+            android:id="@+id/input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Name"
-            android:inputType="textPersonName" />
-
-        <Spinner
-            android:id="@+id/input_role"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/role_options" />
+            android:hint="Enter Email"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/input_password"
@@ -66,18 +58,11 @@
             android:hint="Enter Password"
             android:inputType="textPassword" />
 
-        <EditText
-            android:id="@+id/input_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Email"
-            android:inputType="textEmailAddress" />
-
         <Button
             android:id="@+id/submit_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit"
+            android:text="Login"
             android:onClick="submit"
             />
     </LinearLayout>

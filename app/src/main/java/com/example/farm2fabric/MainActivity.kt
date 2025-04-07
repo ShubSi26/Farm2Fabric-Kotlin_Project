@@ -43,16 +43,16 @@ class MainActivity : AppCompatActivity() {
                     val name = jsonObject.getString("name")
                     val email = jsonObject.getString("email")
                     val role = jsonObject.getString("role")
+                    val address = jsonObject.getString("address")
+                    val occupation  = jsonObject.getString("occupation")
+                    val phone = jsonObject.getString("phone")
                     with(sharedPreferences.edit()) {
                         putString("name", name)
-                        apply()
-                    }
-                    with(sharedPreferences.edit()) {
                         putString("email", email)
-                        apply()
-                    }
-                    with(sharedPreferences.edit()) {
                         putString("role", role)
+                        putString("address", address)
+                        putString("occupation", occupation)
+                        putString("phone", phone)
                         apply()
                     }
                     val intent = Intent(this@MainActivity, Dashboard::class.java)
@@ -86,7 +86,6 @@ class MainActivity : AppCompatActivity() {
         val mediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
         val body = jsonObject.toString().toRequestBody(mediaType)
 
-        Toast.makeText(this, apiUrl, Toast.LENGTH_LONG).show()
         val request = Request.Builder()
             .url(apiUrl)
             .post(body)
@@ -118,12 +117,11 @@ class MainActivity : AppCompatActivity() {
                                 apply()
                             }
 
-                            Toast.makeText(this@MainActivity, "Token Saved!", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this@MainActivity, Dashboard::class.java)
-                            startActivity(intent)
+                            val intent = intent
                             finish()
+                            startActivity(intent)
                         } catch (e: Exception) {
-                            Toast.makeText(this@MainActivity, "Error parsing response", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity, "Response Error", Toast.LENGTH_SHORT).show()
                         }
                     } else {
                         Toast.makeText(this@MainActivity, "Server Error", Toast.LENGTH_SHORT).show()

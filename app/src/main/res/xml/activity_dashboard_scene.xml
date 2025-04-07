@@ -8,7 +8,7 @@
     <Transition
         motion:constraintSetStart="@id/start2"
         motion:constraintSetEnd="@id/end2"
-        motion:duration="800" >
+        motion:duration="400" >
     </Transition>
 
     <!-- Start State: LinearLayout is off-screen (small height) but anchored at bottom -->

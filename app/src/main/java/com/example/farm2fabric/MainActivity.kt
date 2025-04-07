@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
@@ -26,38 +28,41 @@ class MainActivity : AppCompatActivity() {
         val motionview = findViewById<MotionLayout>(R.id.main)
 
         val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
-        val authToken = sharedPreferences.getString("auth_token", "") ?: ""
 
-        val apiUrl = BuildConfig.API_LINK + "/tokenverify" // Read from gradle.properties
-
-        val request = Request.Builder()
-            .url(apiUrl)
-            .get()
-            .header("authorization",authToken)
-            .build()
-
-        val client = OkHttpClient()
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                runOnUiThread {
+        ApiClient.makeRequest(
+            context = this,
+            path = "/userdetail",
+            method = "GET"
+        ) { success, response ->
+            this.runOnUiThread {
+                if (success) {
+                    Log.d("data",response+"")
+                    val resp = JSONObject(response)
+                    val data = resp.getString("data")
+                    val jsonObject = JSONObject(data)
+                    val name = jsonObject.getString("name")
+                    val email = jsonObject.getString("email")
+                    val role = jsonObject.getString("role")
+                    with(sharedPreferences.edit()) {
+                        putString("name", name)
+                        apply()
+                    }
+                    with(sharedPreferences.edit()) {
+                        putString("email", email)
+                        apply()
+                    }
+                    with(sharedPreferences.edit()) {
+                        putString("role", role)
+                        apply()
+                    }
+                    val intent = Intent(this@MainActivity, Dashboard::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
                     motionview.transitionToEnd()
                 }
             }
-
-            override fun onResponse(call: Call, response: Response) {
-                runOnUiThread {
-                    if (response.isSuccessful) {
-                        val intent = Intent(this@MainActivity, Dashboard::class.java)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        motionview.transitionToEnd()
-                    }
-                }
-            }
-
-        })
-
+        }
     }
 
     fun submit(view: View) {

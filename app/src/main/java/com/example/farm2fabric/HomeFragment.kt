@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
         val motionLayout = view.findViewById<MotionLayout>(R.id.dashboard)
         Handler().postDelayed({
             motionLayout.transitionToEnd()
-        }, 700)
+        }, 100)
 
         view.findViewById<CardView>(R.id.order_button).setOnClickListener{
             val intent = Intent(requireContext(), Order::class.java)

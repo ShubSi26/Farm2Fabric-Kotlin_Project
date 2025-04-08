@@ -38,7 +38,7 @@ object ApiClient {
             }
         }
 
-        val request = requestBuilder.build()
+        val request = requestBuilder.addHeader("Content-Type", "application/json; charset=utf-8").build()
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {

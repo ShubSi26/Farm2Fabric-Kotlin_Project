@@ -14,6 +14,7 @@ import com.example.farm2fabric.MainActivity
 import com.razorpay.Checkout
 import com.razorpay.PaymentData
 import com.razorpay.PaymentResultWithDataListener
+import com.razorpay.PaymentResultListener
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
@@ -67,7 +68,7 @@ class OrderNow : AppCompatActivity(),PaymentResultWithDataListener  {
                         if (success) {
                             startPayment(response.toString())
                         } else {
-
+                            Toast.makeText(this,"Server Error", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
@@ -91,17 +92,34 @@ class OrderNow : AppCompatActivity(),PaymentResultWithDataListener  {
         prefill.put("contact",phone)
         options.put("prefill",prefill)
 
+        val key = options.getString("key")
+        co.setKeyID(key)
+
         co.open(this,options)
     }
 
     override fun onPaymentError(errorCode: Int, response: String, p2: PaymentData) {
-        /**
-         * Add your logic here for a failed payment response
-         */
+        Toast.makeText(this,"Payment Failed", Toast.LENGTH_SHORT).show()
     }
-    override fun onPaymentSuccess(razorpayPaymentId: String?, PaymentData: PaymentData) {
+    override fun onPaymentSuccess(razorpayPaymentId: String?, paymentData: PaymentData) {
 
-        Toast.makeText(this,"Payment Successful",Toast.LENGTH_SHORT).show()
+        val jsonObject = paymentData.getData()
+        val mediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
+        val body = jsonObject.toString().toRequestBody(mediaType)
+
+        ApiClient.makeRequest(
+            context = this,
+            path = "/order/verify",
+            method = "POST",
+            body = body
+        ) { success, response ->
+            this.runOnUiThread {
+                if (success) {
+                    Toast.makeText(this,"Order Created", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this,"Server Error", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
-
 }

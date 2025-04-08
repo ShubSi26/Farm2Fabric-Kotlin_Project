@@ -47,6 +47,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.constraintlayout:constraintlayout-core:1.0.4")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.razorpay:checkout:1.6.40")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

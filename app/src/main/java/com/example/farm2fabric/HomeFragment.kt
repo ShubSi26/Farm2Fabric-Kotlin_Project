@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
         }, 100)
 
         view.findViewById<CardView>(R.id.order_button).setOnClickListener{
-            val intent = Intent(requireContext(), Order::class.java)
+            val intent = Intent(requireContext(), MyOrder::class.java)
             startActivity(intent)
         }
 

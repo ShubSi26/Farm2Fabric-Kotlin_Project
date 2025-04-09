@@ -3,6 +3,7 @@ package com.example.farm2fabric
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +24,7 @@ class PaymentDetail : AppCompatActivity() {
         val paymentId = intent.getStringExtra("payment_id")
         val quantity = intent.getStringExtra("quantity")
 
-        val button  = findViewById<ImageView>(R.id.back)
+        val button  = findViewById<LinearLayout>(R.id.back)
 
         button.setOnClickListener {
             finish()
@@ -35,6 +36,6 @@ class PaymentDetail : AppCompatActivity() {
         findViewById<TextView>(R.id.tvDetailDate).text = date
         findViewById<TextView>(R.id.tvDetailOrderId).text = orderId
         findViewById<TextView>(R.id.tvDetailPaymentId).text = paymentId
-        findViewById<TextView>(R.id.tvDetailQuantity).text = "Qty: $quantity"
+        findViewById<TextView>(R.id.tvDetailQuantity).text = "Qty: $quantity Kg"
     }
 }

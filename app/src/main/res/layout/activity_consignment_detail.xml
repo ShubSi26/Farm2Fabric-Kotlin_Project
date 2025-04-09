@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dashboardbg"
+    android:orientation="vertical"
+    tools:context=".ConsignmentDetail">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consignment Details"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="10dp" />
+
+    <LinearLayout
+        android:id="@+id/back4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/arrow_left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go Back"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/Ctitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="F2F343534"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textAlignment="textEnd"
+            android:paddingRight="20dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:background="@drawable/grid_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Order Status"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <!-- Step 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                >
+
+                <TextView
+                    android:id="@+id/stepCreating"
+                    style="@style/StepStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Created"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/iconCreating"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/circle_check_gray"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"
+                android:layout_marginVertical="8dp" />
+
+            <!-- Step 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/stepAccepted"
+                    style="@style/StepStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Accepted"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/iconAccepted"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/circle_check_gray"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"
+                android:layout_marginVertical="8dp" />
+
+            <!-- Step 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/stepInTransit"
+                    style="@style/StepStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="In Transit"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/iconInTransit"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/circle_check_gray"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"
+                android:layout_marginVertical="8dp" />
+
+            <!-- Step 4 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/stepFinished"
+                    style="@style/StepStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Finished"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/iconFinished"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/circle_check_gray"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personal Details"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"
+                android:layout_marginVertical="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- Left Column (Labels) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="start">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Customer Name"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Customer Email"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Customer Number"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Farmer Name"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Farmer Email"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="4dp" />
+                </LinearLayout>
+
+                <!-- Right Column (Values) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="end">
+
+                    <TextView
+                        android:id="@+id/valueName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="John Doe"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="4dp" />
+
+                    <TextView
+                        android:id="@+id/valueEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="john@example.com"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="4dp" />
+
+                    <TextView
+                        android:id="@+id/valuePhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="+91-9876543210"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="4dp" />
+
+                    <TextView
+                        android:id="@+id/valueFarmerName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ramesh Kumar"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="4dp" />
+
+                    <TextView
+                        android:id="@+id/valueFarmerEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ramesh@farm.com"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Consignment Details"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"
+                android:layout_marginVertical="5dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <!-- Labels -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Consignment ID"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Weight"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Price"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Payment ID"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Payment Status"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Date"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Time"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <!-- Values -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/valueConsignmentId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CN123456"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valueWeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="25 kg"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valuePrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="₹5000"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valuePaymentId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="PAY987654"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valuePaymentStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Completed"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valueDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2025-04-09"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valueTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="14:35"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

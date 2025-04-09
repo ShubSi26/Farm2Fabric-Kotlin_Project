@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.farm2fabric.ConsignmentDetail
 import com.example.farm2fabric.ConsignmentItem
 import com.example.farm2fabric.PaymentDetail
 import com.example.farm2fabric.R
@@ -23,7 +25,7 @@ class ConsignmentAdapter(
         val amountTextView: TextView = itemView.findViewById(R.id.amountTextView)
         val quantityTextView: TextView = itemView.findViewById(R.id.quantityTextView)
         val statusTextView: TextView = itemView.findViewById(R.id.statusTextView)
-        val viewInfoButton: Button = itemView.findViewById(R.id.viewInfoButton)
+        val viewInfoButton: LinearLayout = itemView.findViewById(R.id.viewInfoButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConsignmentViewHolder {
@@ -48,17 +50,17 @@ class ConsignmentAdapter(
         }
 
 
-//        holder.viewInfoButton.setOnClickListener {
-//            val intent = Intent(context, PaymentDetail::class.java).apply {
-//                putExtra("consignment_id", item.consignmentId)
-//                putExtra("amount", item.price.toString())
-//                putExtra("status", item.status)
-//                putExtra("date", formattedDate)
-//                putExtra("payment_id", item.paymentid)
-//                putExtra("quantity", item.quantity.toString())
-//            }
-//            context.startActivity(intent)
-//        }
+        holder.viewInfoButton.setOnClickListener {
+            val intent = Intent(context, ConsignmentDetail::class.java).apply {
+                putExtra("consignmentId", item.consignmentId)
+                putExtra("amount", item.price.toString())
+                putExtra("status", item.status)
+                putExtra("date", formattedDate)
+                putExtra("payment_id", item.paymentid)
+                putExtra("quantity", item.quantity.toString())
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = consignments.size

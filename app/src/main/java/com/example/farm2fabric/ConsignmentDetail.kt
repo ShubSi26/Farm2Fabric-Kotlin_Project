@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -22,6 +23,11 @@ class ConsignmentDetail : AppCompatActivity() {
         val date = intent.getStringExtra("date") ?: "N/A"
         val paymentId = intent.getStringExtra("payment_id") ?: "N/A"
         val quantity = intent.getStringExtra("quantity") ?: "N/A"
+
+        val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
+        val name = sharedPreferences.getString("name", "") ?: ""
+        val email = sharedPreferences.getString("email", "") ?: ""
+        val phone = sharedPreferences.getString("phone", "") ?: ""
 
         val inputFormat = SimpleDateFormat("dd MMM yyyy, hh:mm a", Locale.getDefault())
         val outputFormatD = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
@@ -42,7 +48,14 @@ class ConsignmentDetail : AppCompatActivity() {
         findViewById<TextView>(R.id.Ctitle).text = consignmentId
         findViewById<TextView>(R.id.valueDate).text = formattedDateOnly
         findViewById<TextView>(R.id.valueTime).text = formattedTimeOnly
+        findViewById<TextView>(R.id.valueName).text = name
+        findViewById<TextView>(R.id.valueEmail).text = email
+        findViewById<TextView>(R.id.valuePhone).text = phone
 
+        if(status == "step0"){
+            findViewById<TextView>(R.id.valueFarmerName).text = "NA"
+            findViewById<TextView>(R.id.valueFarmerEmail).text = "NA"
+        }
 
         // TextViews
         val stepCreating = findViewById<TextView>(R.id.stepCreating)

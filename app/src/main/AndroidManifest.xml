@@ -24,7 +24,7 @@
             android:name=".OrderNow"
             android:exported="false" />
         <activity
-            android:name=".Order"
+            android:name=".MyOrder"
             android:exported="false" />
         <activity
             android:name=".Dashboard"

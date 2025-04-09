@@ -1,6 +1,8 @@
 package com.example.farm2fabric
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +22,12 @@ class PaymentDetail : AppCompatActivity() {
         val orderId = intent.getStringExtra("order_id")
         val paymentId = intent.getStringExtra("payment_id")
         val quantity = intent.getStringExtra("quantity")
+
+        val button  = findViewById<ImageView>(R.id.back)
+
+        button.setOnClickListener {
+            finish()
+        }
 
         findViewById<TextView>(R.id.tvDetailConsignmentId).text = consignmentId
         findViewById<TextView>(R.id.tvDetailAmount).text = "₹$amount"

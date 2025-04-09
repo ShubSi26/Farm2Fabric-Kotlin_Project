@@ -2,6 +2,7 @@ package com.example.farm2fabric
 
 import PaymentAdapter
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +19,12 @@ class Payments : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val button = findViewById<ImageView>(R.id.back2)
+
+        button.setOnClickListener {
+            finish()
+        }
 
         ApiClient.makeRequest(
             context = this,

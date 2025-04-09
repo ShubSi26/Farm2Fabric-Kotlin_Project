@@ -13,7 +13,7 @@
         android:gravity="center"
         android:textSize="40dp"
         android:textColor="@android:color/white"
-        android:paddingTop="30dp"
+        android:paddingTop="0dp"
         android:paddingBottom="10dp"
         android:textStyle="bold" />
 
@@ -25,10 +25,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/fullgrid"
+            android:background="@drawable/smallcornerborder"
             android:orientation="vertical"
             android:padding="16dp"
             android:gravity="center_horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="">
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/back"/>
+            </LinearLayout>
 
             <!-- Repeat this block for each detail -->
 
@@ -145,4 +156,5 @@
                 android:textSize="18sp"/>
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

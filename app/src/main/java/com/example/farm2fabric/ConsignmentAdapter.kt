@@ -1,4 +1,5 @@
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.farm2fabric.AcceptOrder
 import com.example.farm2fabric.ConsignmentDetail
 import com.example.farm2fabric.ConsignmentItem
 import com.example.farm2fabric.PaymentDetail
@@ -45,21 +47,43 @@ class ConsignmentAdapter(
 
         holder.amountTextView.text = "₹${item.price}"
         holder.quantityTextView.text = "Qty: ${item.quantity} Kg"
+
         if(item.status == "step0"){
             holder.statusTextView.text = "Created"
+        }else if(item.status == "step1") {
+            holder.statusTextView.text = "Accepted"
+        }else if(item.status == "step2"){
+            holder.statusTextView.text = "In Transit"
         }
 
 
-        holder.viewInfoButton.setOnClickListener {
-            val intent = Intent(context, ConsignmentDetail::class.java).apply {
-                putExtra("consignmentId", item.consignmentId)
-                putExtra("amount", item.price.toString())
-                putExtra("status", item.status)
-                putExtra("date", formattedDate)
-                putExtra("payment_id", item.paymentid)
-                putExtra("quantity", item.quantity.toString())
+        val sharedPreferences = context.getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
+        val role = sharedPreferences.getString("role", "") ?: ""
+
+        if(role == "Customer"){
+            holder.viewInfoButton.setOnClickListener {
+                val intent = Intent(context, ConsignmentDetail::class.java).apply {
+                    putExtra("consignmentId", item.consignmentId)
+                    putExtra("amount", item.price.toString())
+                    putExtra("status", item.status)
+                    putExtra("date", formattedDate)
+                    putExtra("payment_id", item.paymentid)
+                    putExtra("quantity", item.quantity.toString())
+                }
+                context.startActivity(intent)
             }
-            context.startActivity(intent)
+        }else if(role == "Farmer"){
+            holder.viewInfoButton.setOnClickListener {
+                val intent = Intent(context, AcceptOrder::class.java).apply {
+                    putExtra("consignmentId", item.consignmentId)
+                    putExtra("amount", item.price.toString())
+                    putExtra("status", item.status)
+                    putExtra("date", formattedDate)
+                    putExtra("payment_id", item.paymentid)
+                    putExtra("quantity", item.quantity.toString())
+                }
+                context.startActivity(intent)
+            }
         }
     }
 

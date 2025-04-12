@@ -70,6 +70,16 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        view.findViewById<CardView>(R.id.view_order_button).setOnClickListener {
+            val intent = Intent(requireContext(), UnacceptedOrders::class.java)
+            startActivity(intent)
+        }
+
+        view.findViewById<CardView>(R.id.my_orders).setOnClickListener {
+            val intent = Intent(requireContext(), MyOrder::class.java)
+            startActivity(intent)
+        }
+
         return view
     }
 

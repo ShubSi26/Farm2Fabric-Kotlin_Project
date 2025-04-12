@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dashboardbg"
+    android:orientation="vertical"
+    tools:context=".ConsignmentDetail">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consignment Details"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="10dp" />
+
+    <LinearLayout
+        android:id="@+id/back7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/arrow_left_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go Back"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/Ctitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="F2F343534"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textAlignment="textEnd"
+            android:paddingRight="20dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:background="@drawable/grid_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Consignment Details"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"
+                android:layout_marginVertical="5dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <!-- Labels -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Consignment ID"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Weight"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Price"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Payment ID"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Payment Status"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Date"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Time"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <!-- Values -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/valueConsignmentId2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CN123456"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valueWeight2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="25 kg"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valuePrice2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="₹5000"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valuePaymentId2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="PAY987654"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valuePaymentStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Completed"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valueDate2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2025-04-09"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/valueTime2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="14:35"
+                        android:textSize="16sp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/acceptorder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Accept Order"/>
+
+            <LinearLayout
+                android:id="@+id/updateorder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <EditText
+                    android:id="@+id/txid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Update Order"
+                    android:layout_gravity="right"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

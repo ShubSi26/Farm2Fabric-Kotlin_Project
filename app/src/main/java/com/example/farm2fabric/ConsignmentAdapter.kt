@@ -54,6 +54,8 @@ class ConsignmentAdapter(
             holder.statusTextView.text = "Accepted"
         }else if(item.status == "step2"){
             holder.statusTextView.text = "In Transit"
+        }else{
+            holder.statusTextView.text = "Delivered"
         }
 
 

@@ -3,11 +3,17 @@ package com.example.farm2fabric
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
 import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -55,6 +61,35 @@ class ConsignmentDetail : AppCompatActivity() {
         if(status == "step0"){
             findViewById<TextView>(R.id.valueFarmerName).text = "NA"
             findViewById<TextView>(R.id.valueFarmerEmail).text = "NA"
+        }
+
+        if(status == "step2"){
+            findViewById<Button>(R.id.delivered).visibility = View.VISIBLE
+        } else {
+            findViewById<Button>(R.id.delivered).visibility = View.GONE
+        }
+
+        findViewById<Button>(R.id.delivered).setOnClickListener {
+            val jsonObject = JSONObject()
+            jsonObject.put("consignmentid", consignmentId)
+
+            val mediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
+            val body = jsonObject.toString().toRequestBody(mediaType)
+
+            ApiClient.makeRequest(
+                context = this,
+                path = "/completeorder",
+                method = "POST",
+                body = body
+            ) { success, response ->
+                this.runOnUiThread {
+                    if (success) {
+                        Toast.makeText(this,"Order Accepted", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this,"Server Error", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
         }
 
         // TextViews

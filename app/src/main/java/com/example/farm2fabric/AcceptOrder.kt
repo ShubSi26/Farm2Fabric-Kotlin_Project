@@ -46,12 +46,22 @@ class AcceptOrder : AppCompatActivity() {
         findViewById<TextView>(R.id.valueDate2).text = formattedDateOnly
         findViewById<TextView>(R.id.valueTime2).text = formattedTimeOnly
 
+        findViewById<LinearLayout>(R.id.back7).setOnClickListener {
+            finish()
+        }
+
         val acceptButton = findViewById<Button>(R.id.acceptorder)
         val txid = findViewById<EditText>(R.id.txid)
         val tralinlayout = findViewById<LinearLayout>(R.id.updateorder)
 
-        if(status == "step1"){
+        if(status == "step0"){
+            acceptButton.visibility = View.VISIBLE
+        }else{
             acceptButton.visibility = View.GONE
+        }
+
+        if(status == "step1"){
+            tralinlayout.visibility = View.VISIBLE
         }else{
             tralinlayout.visibility = View.GONE
         }

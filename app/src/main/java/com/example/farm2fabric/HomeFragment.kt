@@ -80,6 +80,11 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        view.findViewById<CardView>(R.id.mypayment).setOnClickListener {
+            val intent = Intent(requireContext(), Payments::class.java)
+            startActivity(intent)
+        }
+
         return view
     }
 

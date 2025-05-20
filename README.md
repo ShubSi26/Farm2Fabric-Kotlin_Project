@@ -9,7 +9,7 @@ across the supply chain.
 ### Backend Code - [click here](https://github.com/ShubSi26/Farm2Fabric-Backend)
 
 # Technology Used
-<img src="https://skillicons.dev/icons?i=kotlin,express,nodejs,js" />
+<img src="https://skillicons.dev/icons?i=kotlin,express,nodejs,js,mongodb" />
 
-|`kotlin`|`express`|`nodejs`|`javascript`|
-|---|---|---|---|
+|`kotlin`|`express`|`nodejs`|`javascript`|`mongodb`|
+|---|---|---|---|---|
